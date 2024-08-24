@@ -17,9 +17,6 @@ Authentication Middleware
 Models
 User Model
 Task Model
-Project Structure
-License
-Installation
 Clone the repository:
 
 git clone https://github.com/Akhil97Negi/task-management-backend
