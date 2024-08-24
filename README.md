@@ -22,7 +22,7 @@ License
 Installation
 Clone the repository:
 
-git clone https://github.com/your-username/task-user-management-api.git
+git clone https://github.com/Akhil97Negi/task-management-backend
 Change directory:
 
 cd task-user-management-api
