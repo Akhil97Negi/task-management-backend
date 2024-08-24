@@ -2,6 +2,8 @@
 
 A Node.js application for managing tasks and user authentication. It uses Express for the server, Mongoose for MongoDB interactions, and JWT for user authentication.
 
+**[Live Deployment](https://task-management-backend-0eqb.onrender.com/)**
+
 ## Features
 
 - User registration and login with JWT-based authentication.
