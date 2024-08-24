@@ -12,7 +12,7 @@ const Auth = (requiredRole) => async(req,res,next)=>{
             if(err){
                 return res.status(403).json('Token is Invalid!!')
             }
-            //decode add to req.user._id , role more details passed
+           
             req.user = decoded;
             
             //role check
