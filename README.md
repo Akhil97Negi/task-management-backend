@@ -1,39 +1,39 @@
-Task and User Management API
+# Task and User Management API
+
 A Node.js application for managing tasks and user authentication. It uses Express for the server, Mongoose for MongoDB interactions, and JWT for user authentication.
 
-Features
-User registration and login with JWT-based authentication.
-Task management (CRUD operations) for authenticated users.
-Role-based access control (admin and user).
-Error handling and validation.
-Table of Contents
-Installation
-Environment Variables
-Running the Application
-API Endpoints
-User Endpoints
-Task Endpoints
-Authentication Middleware
-Models
-User Model
-Task Model
-Project Structure
-License
-Installation
-Clone the repository:
+## Features
 
-bash
-Copy code
+- User registration and login with JWT-based authentication.
+- Task management (CRUD operations) for authenticated users.
+- Role-based access control (admin and user).
+- Error handling and validation.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Running the Application](#running-the-application)
+- [API Endpoints](#api-endpoints)
+  - [User Endpoints](#user-endpoints)
+  - [Task Endpoints](#task-endpoints)
+- [Authentication Middleware](#authentication-middleware)
+- [Models](#models)
+  - [User Model](#user-model)
+  - [Task Model](#task-model)
+- [Project Structure](#project-structure)
+- [License](#license)
+
+
+## Installation
+
+### Clone the repository:
+
+```bash
 git clone https://github.com/your-username/task-user-management-api.git
 Change directory:
-
-bash
-Copy code
 cd task-user-management-api
 Install dependencies:
-
-bash
-Copy code
 npm install
 Environment Variables
 Create a .env file in the root of the project and add the following environment variables:
@@ -58,31 +58,35 @@ User Endpoints
 Register a new user
 
 URL: /users/register
+
 Method: POST
+
 Body Parameters:
-json
-Copy code
+
 {
   "username": "string",
   "email": "string",
   "password": "string"
 }
 Response:
+
 201 Created - User registered successfully
 400 Bad Request - Missing required fields
 409 Conflict - Email already exists
 User login
 
 URL: /users/login
+
 Method: POST
+
 Body Parameters:
-json
-Copy code
+
 {
   "email": "string",
   "password": "string"
 }
 Response:
+
 200 OK - Login successful, returns JWT token
 400 Bad Request - Missing required fields
 401 Unauthorized - Incorrect password
@@ -109,28 +113,33 @@ Response:
 Create a new task
 
 URL: /tasks
+
 Method: POST
+
 Headers: Authorization: Bearer <token>
+
 Body Parameters:
-json
-Copy code
+
 {
   "title": "string",
   "description": "string",
   "priority": "low|medium|high"
 }
 Response:
+
 201 Created - Task created successfully
 400 Bad Request - Missing required fields
 409 Conflict - Task with this title already exists
 Update a task
 
 URL: /tasks/:id
+
 Method: PUT
+
 Headers: Authorization: Bearer <token>
+
 Body Parameters:
-json
-Copy code
+
 {
   "title": "string",
   "description": "string",
@@ -138,6 +147,7 @@ Copy code
   "status": "pending|in-progress|completed"
 }
 Response:
+
 200 OK - Task updated successfully
 404 Not Found - Task not found
 Delete a task
@@ -153,26 +163,25 @@ The Auth middleware checks the validity of the JWT token and ensures that the us
 
 Usage example in a route:
 
-javascript
-Copy code
+
 const Auth = require('../middlewares/authMiddleware');
 taskRouter.get('/', Auth(['admin', 'user']), getAllTasks);
-Models
-User Model
+--Models
+-User Model
 Fields:
 username: String, required
 email: String, unique, required
 password: String, required
 role: String, enum: ['admin', 'user'], default: 'user'
-Task Model
+--Task Model
 Fields:
 title: String, required
 description: String, required
 priority: String, enum: ['low', 'medium', 'high'], required
 status: String, enum: ['pending', 'in-progress', 'completed'], default: 'pending'
+
 Project Structure
-lua
-Copy code
+
 |-- src
 |   |-- configs
 |   |   |-- db.js
