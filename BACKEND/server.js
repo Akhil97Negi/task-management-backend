@@ -10,10 +10,12 @@ app.use(express.json())
 const URL = process.env.URL
 const PORT = process.env.PORT || 6000
 
+
+//home to check
 app.get('/home' , (req, res) =>{
     try {
         console.log("home");
-        res.status(200).json("this is ho,e  route")
+        res.status(200).json("this is home  route")
     } catch (err) {
         res.status(500).json(err.message)
     }
